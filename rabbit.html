@@ -38,6 +38,7 @@
             height: 300px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
         }
 
         .back-button {
@@ -65,6 +66,43 @@
 
         .gallery-item {
             animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Style cho modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1001;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            animation: zoom 0.3s ease;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.1)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: fixed;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -118,5 +156,45 @@
             <img src="https://i.pinimg.com/736x/0e/5b/2e/0e5b2e99f2b386b488a6f76ba37938c7.jpg" alt="Thỏ 15">
         </div>
     </div>
+
+    <!-- Thêm modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // Lấy modal
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImg");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // Thêm sự kiện click cho tất cả ảnh trong gallery
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Đóng modal khi click vào nút close
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Đóng modal khi click ra ngoài ảnh
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html> 

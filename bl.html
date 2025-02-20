@@ -38,6 +38,7 @@
             height: 300px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
         }
 
         .back-button {
@@ -66,6 +67,43 @@
         .gallery-item {
             animation: fadeIn 0.5s ease-out forwards;
         }
+
+        /* Style cho modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1001;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            animation: zoom 0.3s ease;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.1)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: fixed;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -73,50 +111,90 @@
     
     <div class="gallery">
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/d7/5b/d1/d75bd1d7f171c9c3e7d3be7f5d951711.jpg" alt="BL 1">
+            <img src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/480997542_614158771226853_4454711029087894387_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xVQlCoacvKIQ7kNvgEBs5V7&_nc_oc=Adjz9WxdQInaHBsDkWDq9qOKSrSVHuuGc0QkPiIBu4WV8Hu_wDeZXR27c6wKO_1egMM&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&oh=03_Q7cD1gEpjIn3dWFf8GMbc7XJ1bmicv6KXTpSOwHtiv2El9XUIA&oe=67DE5B44" alt="BL 1">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/1a/c8/b9/1ac8b9f8f8b9f8b9f8b9f8b9f8b9f8b9.jpg" alt="BL 2">
+            <img src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/477890855_1146986906915540_1907819782098776424_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=czv6WI2VogAQ7kNvgFB4zSo&_nc_oc=AdjmQkaPlXKZebZgKDpOYzitu9OB4hLzZFarCT9aHXZlsh4F1_9BDmr9e5K8s5FClj8&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&oh=03_Q7cD1gGPan1D4-sUsZP4A2zZJooy-djHrY6MW-3SVuLTfdk7bg&oe=67DE6533" alt="BL 2">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/2b/d9/ca/2bd9ca8f8c9f8c9f8c9f8c9f8c9f8c9f.jpg" alt="BL 3">
+            <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t1.15752-9/477089289_620040077565125_6049126408271375392_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=gq9XWYqymAsQ7kNvgFk5eM9&_nc_oc=AdgXL27-PJDUOdA6G9ADnAXu4-c9uKHM55C3OOYNWD08mzCmw_GLrmmmHLSWeKHEi9o&_nc_zt=23&_nc_ht=scontent.fhan5-8.fna&oh=03_Q7cD1gEFYYoIFXFIdX9antK26h7Q3iHwCkNsz4FVStrBbXHRPA&oe=67DE70DB" alt="BL 3">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/3c/ea/db/3ceadb9f9d9f9d9f9d9f9d9f9d9f9d9f.jpg" alt="BL 4">
+            <img src="https://scontent.fhan5-9.fna.fbcdn.net/v/t1.15752-9/476738652_558027763926598_5249248574725643245_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=TxpmAbizpFgQ7kNvgF6hbeD&_nc_oc=AdgKgy847RxxN5ZeDzyjb7dp9oV6chZM1NIvgV3euFoOrQJJah1Rcu6SQjvFAJvZlX4&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&oh=03_Q7cD1gFZ7aNYGfgp_nEHZL1Be8FUgapHXp-w_hIBJqfuGv3mDQ&oe=67DE872D" alt="BL 4">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/4d/fb/ec/4dfbec0f0e0f0e0f0e0f0e0f0e0f0e0f.jpg" alt="BL 5">
+            <img src="https://scontent.fhan5-6.fna.fbcdn.net/v/t1.15752-9/476891952_1179678570440243_5738777964605759765_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_ohc=uObrpWvBHGkQ7kNvgEG8Xxx&_nc_oc=Adj_I75EWCg6aGB6zGsVJJl7ORYdDZlnzIGVjXu2iW2ap405lfjEv_9tKYs3GvUXhpU&_nc_zt=23&_nc_ht=scontent.fhan5-6.fna&oh=03_Q7cD1gGMdHnDg5NS9J39bpu_nuFk63ngwRX2l3xCp80AzQqksw&oe=67DE5B63" alt="BL 5">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/5e/0c/fd/5e0cfd1f1f1f1f1f1f1f1f1f1f1f1f1f.jpg" alt="BL 6">
+            <img src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/476913335_1318459599298293_5022047703824659894_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=sb-e71khX90Q7kNvgFwFjcC&_nc_oc=AdgG1iwg4ZQ1nFJj1ZmUGmI-jBy5xJrmy8BaYs3H0I7pyD-OZpCyT6kWntYL0SrZTgE&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&oh=03_Q7cD1gFf3qIOMff0XZbhSYiZmQJ2BlUOAB5Q5uiKhgGBtbdmww&oe=67DE7805" alt="BL 6">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/6f/1d/0e/6f1d0e2f2f2f2f2f2f2f2f2f2f2f2f2f.jpg" alt="BL 7">
+            <img src="https://scontent.fhan5-9.fna.fbcdn.net/v/t1.15752-9/480149263_637075072307831_7117958691720160246_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=QVCRgk6rPrwQ7kNvgHaLkEO&_nc_oc=Adjko1lhVK6uqtIp1mgQHsSh-f1fIi5Y6mDCOUARZH0wF_CSj6wx90EOkhF1PAJytQY&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&oh=03_Q7cD1gF8vSPQbHoHLU59-2DS5OoNoILOVC-mZj8RJrXoVOJazg&oe=67DE6BA8" alt="BL 7">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/70/2e/1f/702e1f3f3f3f3f3f3f3f3f3f3f3f3f3f.jpg" alt="BL 8">
+            <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t1.15752-9/476596574_600710836271349_2867477035040955768_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=J5sFSK2ZFHoQ7kNvgEeAKMs&_nc_oc=AdiNesnousvyJVupEFZITypGsfqbHHlxaSEKWAmMx4vA7wLRv0UgNwulk0_UbrfIYVo&_nc_zt=23&_nc_ht=scontent.fhan5-8.fna&oh=03_Q7cD1gEZLoPyUwlkJtw3a_FsJwt_cy6utJSy8JwZlTjJcATG0A&oe=67DE5E1C" alt="BL 8">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/81/3f/20/813f204f4f4f4f4f4f4f4f4f4f4f4f4f.jpg" alt="BL 9">
+            <img src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/477022074_2565390007001868_8242756347672688631_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_ohc=tvNZ5vrd4WYQ7kNvgHo8a8h&_nc_oc=AdiN6pXnGC6EFc07L6g-rwabw0AFlNejjWHCWB2yJ4-Fu4ahOb9BVVASJV-I1jBEUr8&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&oh=03_Q7cD1gHH7sjuZdO5OQiufnVkxLZTuDE8jb2Em2jKmvJZKltwjQ&oe=67DE5551" alt="BL 9">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/92/40/31/924031505050505050505050505050505.jpg" alt="BL 10">
+            <img src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/476893191_561544123588432_630611989525908870_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=s8ZdLBpx2UwQ7kNvgHvK9lg&_nc_oc=AdgjJrWyGJh08fnQQLJ-P9e4dad939e6QP2c0jZ1cZKqc63bO4QIZRaeue5o-zWBHXo&_nc_zt=23&_nc_ht=scontent.fhan5-11.fna&oh=03_Q7cD1gHXnE47y3-cM1EiXtZH0m79s_D7lhV4K98D6ylWxjVcFw&oe=67DE6391" alt="BL 10">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/a3/51/42/a35142616161616161616161616161616.jpg" alt="BL 11">
+            <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t1.15752-9/479427417_604254722515122_4212684871099473279_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=xuQtAK7XBIsQ7kNvgE5ww8b&_nc_oc=AdhJGN0t-J_VuSQV5Qx9M-M95CgCmaWhgt07zdk3-tqe_tKY353jMr9qwOIZ76_MsK0&_nc_zt=23&_nc_ht=scontent.fhan5-8.fna&oh=03_Q7cD1gG_7OhYAoF7g5uPEb4n2_oUBhQ2bP9GFpTCu9BchZb5sA&oe=67DE7E74" alt="BL 11">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/b4/62/53/b46253727272727272727272727272727.jpg" alt="BL 12">
+            <img src="https://scontent.fhan5-9.fna.fbcdn.net/v/t1.15752-9/479899035_649115080948891_1861446736000059599_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_ohc=1xzRXyLP670Q7kNvgFJhjT5&_nc_oc=AdiwMHrziYiCAWdKpKqCSVN3DnPl6XQb-6ZZBPtj6LCUJRTpbEtxb8SIV-YkgQ86vzk&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&oh=03_Q7cD1gFPwuBfH9XNH_OJmHZvhAIaFCPskQ0aWsHEXn3F2bU_QQ&oe=67DE8832" alt="BL 12">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/c5/73/64/c57364838383838383838383838383838.jpg" alt="BL 13">
+            <img src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/480827985_1113217290555614_7672385945114851641_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=9S5BXdmNiFkQ7kNvgFfHhcb&_nc_oc=AdgyUm8G5BqdKT-FJbO4oLGhhUj6kp73aOdu8JM0uAjEeEsGpMGWqUa8KSxCNxO99DM&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&oh=03_Q7cD1gEddwMnOX9MbQgCrmuOcR9GzvkXrnRcdLpUTXvhLC3a7Q&oe=67DE874F" alt="BL 13">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/d6/84/75/d68475949494949494949494949494949.jpg" alt="BL 14">
+            <img src="https://scontent.fhan5-8.fna.fbcdn.net/v/t1.15752-9/480679248_1286689645883737_8865662253992128658_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=y4NAjTc75BAQ7kNvgE0SpO6&_nc_oc=AdgTTXSBJ8kyDSQUfCs7Adhg9JZ56TenqpMk50xSSyRobNYodyT9WsG53-0J8ZhUg8o&_nc_zt=23&_nc_ht=scontent.fhan5-8.fna&oh=03_Q7cD1gHpt3rV_htF1vSE4C-YjTb0QrbT6hAibAAQEe6U9oNR-w&oe=67DE84B6" alt="BL 14">
         </div>
         <div class="gallery-item">
-            <img src="https://i.pinimg.com/736x/e7/95/86/e79586a5a5a5a5a5a5a5a5a5a5a5a5a5.jpg" alt="BL 15">
+            <img src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.15752-9/476970157_631606176234011_4953439893085842367_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=DhAtykbNHRUQ7kNvgHBpzDL&_nc_oc=AdicnUutS5yRRkSWZqDzpwD7TMcE3LoMaGWrOvJ1oXma7WH4eCOemwUHyzOIck_nr8Q&_nc_zt=23&_nc_ht=scontent.fhan5-2.fna&oh=03_Q7cD1gHQqnw3pOcLl-f5-WY3aGlnsxnsgHDm9WUM8iukMQjBYw&oe=67DE6DB8" alt="BL 15">
         </div>
     </div>
+
+    <!-- Thêm modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // Lấy modal
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImg");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // Thêm sự kiện click cho tất cả ảnh trong gallery
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Đóng modal khi click vào nút close
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Đóng modal khi click ra ngoài ảnh
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Đóng modal khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html> 
