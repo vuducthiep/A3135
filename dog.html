@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chó - HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            background-color: #660066;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Quay lại</a>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/ff/9b/d0/ff9bd01ffcbe8b2f4875dd42b025e373.jpg" alt="Chó 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/99/12/a4/9912a46f99dd626807128b301f43291d.jpg" alt="Chó 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/a9/e0/55/a9e05581f2800d3a9e3bf94fe9b9ec8b.jpg" alt="Chó 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/87/3c/fc/873cfcac6fa05fcd24ab6e6c714ca7e9.jpg" alt="Chó 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/7f/e6/7e/7fe67ebbe1cae68a46dd717692c1864d.jpg" alt="Chó 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/8a/e6/b2/8ae6b2c879c6f93deee06d53a00f1d02.jpg" alt="Chó 6">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/f2/cb/18/f2cb1815ec4ab711f1d5cf47e525274e.jpg" alt="Chó 7">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/ab/5c/48/ab5c489d1e7dca4e4379caa234fed927.jpg" alt="Chó 8">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/b2/ec/ea/b2eceaaa34a0c1206e90296290f2dacd.jpg" alt="Chó 9">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d2/c5/86/d2c58683461474c507da5e9f77e66464.jpg" alt="Chó 10">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/9d/1b/2a/9d1b2acefbade40e12fa3fcb6908425e.jpg" alt="Chó 11">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/2c/21/35/2c2135d7cda21a8aed1895774cdbcbe0.jpg" alt="Chó 12">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/08/8d/ca/088dcad5d1491fcc6a27e52a51e69550.jpg" alt="Chó 13">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/1b/1e/fe/1b1efe5621dbe9704eb9ead1619e63ab.jpg" alt="Chó 14">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d3/bb/e7/d3bbe750a1a7b877ac23e0a679d154ae.jpg" alt="Chó 15">
+        </div>
+        
+    </div>
+</body>
+</html> 

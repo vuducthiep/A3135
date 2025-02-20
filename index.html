@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #fff; }
+            50% { text-shadow: 0 0 20px #fff, 0 0 30px #800080; }
+            100% { text-shadow: 0 0 5px #fff; }
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .taskbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            transform: none;
+            background-color: #800080;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            height: 100vh;
+            width: 160px;
+            z-index: 1;
+            animation: slideIn 1s ease-out;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+        }
+
+        .taskbar-title {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            animation: glow 2s infinite;
+        }
+
+        .taskbar-item {
+            display: block;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .taskbar-item:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #800080, #ff69b4);
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+
+        .taskbar-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .taskbar-item:hover::before {
+            left: 100%;
+        }
+
+        .image-container {
+            position: fixed;
+            top: 0;
+            left: 160px;
+            right: 0;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 10s ease-in-out;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .background-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .background-slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .background-slideshow img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <div class="taskbar-title">Lựa chọn</div>
+        <a href="cat.html" class="taskbar-item">Mèo</a>
+        <a href="dog.html" class="taskbar-item">Chó</a>
+        <a href="rabbit.html" class="taskbar-item">Thỏ</a>
+        <a href="verify.html" class="taskbar-item">Cho Ánh</a>
+    </div>
+
+   
+
+    <div class="background-slideshow">
+        <img src="https://i.pinimg.com/736x/10/d5/1f/10d51f414a53a6293d1ed00d53da85b4.jpg" class="active">
+        <img src="https://i.pinimg.com/736x/c9/6d/b3/c96db3efb79c19518e65afd08608f6ea.jpg">
+        <img src="https://i.pinimg.com/736x/e5/c1/65/e5c1655a351eab3abc447263c3ead765.jpg">
+        <img src="https://i.pinimg.com/736x/d9/15/08/d91508ff1263728198b9acb858acaec5.jpg">
+    </div>
+
+    <script>
+    const images = document.querySelectorAll('.background-slideshow img');
+    let currentIndex = 0;
+
+    function changeBackground() {
+        // Xóa class active của ảnh hiện tại
+        images[currentIndex].classList.remove('active');
+        
+        // Chuyển sang ảnh tiếp theo
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Thêm class active cho ảnh mới
+        images[currentIndex].classList.add('active');
+    }
+
+    // Thêm sự kiện click cho background slideshow
+    document.querySelector('.background-slideshow').addEventListener('click', changeBackground);
+
+    // Bắt đầu tự động chuyển ảnh ngay khi trang load xong
+    document.addEventListener('DOMContentLoaded', function() {
+        // Thay đổi ảnh mỗi 4 giây
+        setInterval(changeBackground, 4000);
+    });
+    </script>
+</body>
+</html>

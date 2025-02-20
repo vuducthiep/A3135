@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mèo - HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            background-color: #660066;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Quay lại</a>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/10/d5/1f/10d51f414a53a6293d1ed00d53da85b4.jpg" alt="Mèo 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c9/6d/b3/c96db3efb79c19518e65afd08608f6ea.jpg" alt="Mèo 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d9/15/08/d91508ff1263728198b9acb858acaec5.jpg" alt="Mèo 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d9/49/bd/d949bd544d6bb989cb73e11d35e57f56.jpg" alt="Mèo 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/6c/af/c8/6cafc866bf3e34496542242af59c5990.jpg" alt="Mèo 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/cc/8b/3f/cc8b3f7d24d172d240e6ea4a71e9a79e.jpg" alt="Mèo 6">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/8d/0f/9a/8d0f9ad893bafd6a80b34dcf2354c463.jpg" alt="Mèo 7">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/9d/10/51/9d105144b5cf4d61adb1e9433ce6193d.jpg" alt="Mèo 8">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c2/8b/ec/c28bec596aa8b06144a8a2ad9cb59d1c.jpg" alt="Mèo 9">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/bd/07/f7/bd07f73016f71c2f1b0b20abbf87fb4a.jpg" alt="Mèo 10">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/df/3f/2b/df3f2be6daab17e1775b14a87cde8cc7.jpg" alt="Mèo 11">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/8d/e2/de/8de2de986c5c12fdcd5e1eefeaef8202.jpg" alt="Mèo 12">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c2/56/21/c25621e91c93ac3a9fd4188fb4801ea4.jpg" alt="Mèo 13">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/8b/31/c9/8b31c9fe2b9f2b4827310b7e0aa1fd40.jpg" alt="Mèo 14">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c8/5e/e1/c85ee1126ab2bb2433cd6e379c7fbde6.jpg" alt="Mèo 15">
+        </div>
+
+        <!-- Thêm nhiều ảnh mèo khác ở đây -->
+    </div>
+</body>
+</html> 

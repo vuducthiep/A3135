@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đam Mỹ - HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            background-color: #660066;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Quay lại</a>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d7/5b/d1/d75bd1d7f171c9c3e7d3be7f5d951711.jpg" alt="BL 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/1a/c8/b9/1ac8b9f8f8b9f8b9f8b9f8b9f8b9f8b9.jpg" alt="BL 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/2b/d9/ca/2bd9ca8f8c9f8c9f8c9f8c9f8c9f8c9f.jpg" alt="BL 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/3c/ea/db/3ceadb9f9d9f9d9f9d9f9d9f9d9f9d9f.jpg" alt="BL 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/4d/fb/ec/4dfbec0f0e0f0e0f0e0f0e0f0e0f0e0f.jpg" alt="BL 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/5e/0c/fd/5e0cfd1f1f1f1f1f1f1f1f1f1f1f1f1f.jpg" alt="BL 6">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/6f/1d/0e/6f1d0e2f2f2f2f2f2f2f2f2f2f2f2f2f.jpg" alt="BL 7">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/70/2e/1f/702e1f3f3f3f3f3f3f3f3f3f3f3f3f3f.jpg" alt="BL 8">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/81/3f/20/813f204f4f4f4f4f4f4f4f4f4f4f4f4f.jpg" alt="BL 9">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/92/40/31/924031505050505050505050505050505.jpg" alt="BL 10">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/a3/51/42/a35142616161616161616161616161616.jpg" alt="BL 11">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/b4/62/53/b46253727272727272727272727272727.jpg" alt="BL 12">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c5/73/64/c57364838383838383838383838383838.jpg" alt="BL 13">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/d6/84/75/d68475949494949494949494949494949.jpg" alt="BL 14">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/e7/95/86/e79586a5a5a5a5a5a5a5a5a5a5a5a5a5.jpg" alt="BL 15">
+        </div>
+    </div>
+</body>
+</html> 

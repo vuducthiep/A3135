@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thỏ - HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .back-button:hover {
+            background-color: #660066;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Quay lại</a>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/24/cc/bb/24ccbb6c07bbf3cb2fe407b12a4e8aeb.jpg" alt="Thỏ 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/cf/e3/38/cfe3382503899c242619dd916edaad3b.jpg" alt="Thỏ 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/51/ba/76/51ba76d581e244852e80b47dc6499828.jpg" alt="Thỏ 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/18/45/05/18450518171fdca339c6e4cda48511e9.jpg" alt="Thỏ 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/ba/d5/5c/bad55c6885a8598c8136541a107046d3.jpg" alt="Thỏ 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/15/db/b8/15dbb834abb40407cec52d939a2eaad5.jpg" alt="Thỏ 6">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/0a/ce/33/0ace332605b00a87e1025cf716a9638f.jpg" alt="Thỏ 7">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/85/59/44/8559444bad4b9c733f3ed5c17b0d145c.jpg" alt="Thỏ 8">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/72/a4/6b/72a46b5956751752860f4e4a406a9e03.jpg" alt="Thỏ 9">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/3e/98/62/3e9862433f22453d1bdff55bea7b669c.jpg" alt="Thỏ 10">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/72/5d/d6/725dd60dc6c047259ef4456579615d92.jpg" alt="Thỏ 11">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/af/cd/af/afcdafd648a5a00efe060b53bd70358b.jpg" alt="Thỏ 12">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/99/42/0d/99420da02cb2216ff9ec5f8be378df17.jpg" alt="Thỏ 13">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/cf/ec/e7/cfece7030cb39d11b377ea9c5b9fd73b.jpg" alt="Thỏ 14">
+        </div>
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/0e/5b/2e/0e5b2e99f2b386b488a6f76ba37938c7.jpg" alt="Thỏ 15">
+        </div>
+    </div>
+</body>
+</html> 
