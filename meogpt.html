@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeoGPT - HEHE</title>
+    <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/6c/6d/7c/6c6d7c477e320b67b9c6a16b2de2c0d5.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .chat-container {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px 0 20px 0;
+            overflow-y: auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-height: calc(100vh - 160px);
+        }
+
+        .message {
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 25%;
+            animation: fadeIn 0.3s ease;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #800080;
+            color: white;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .cat-message {
+            background-color: #f0f0f0;
+            margin-right: auto;
+            margin-left: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            padding-bottom: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #800080;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #800080;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #660066;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #660066;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Quay lại</a>
+    
+    <div class="chat-container" id="chatContainer">
+        <div class="message cat-message">Meow! Tôi là MeoGPT. Hãy nói gì đó với tôi!</div>
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Nhập tin nhắn..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Gửi</button>
+    </div>
+
+    <script>
+        function generateMeow() {
+            // Kiểm tra tin nhắn cuối cùng của user
+            const lastUserMessage = document.querySelector('.user-message:last-child');
+            if (lastUserMessage && lastUserMessage.textContent.toLowerCase().includes('meow')) {
+                // Nếu có chữ 'meow', trả về ngẫu nhiên 'hehe' hoặc 'hihi'
+                return Math.random() < 0.5 ? 'hehe' : 'hihi';
+            }
+
+            // Nếu không có chữ 'meow', giữ nguyên logic cũ
+            const meowSounds = ['meow', 'meo', 'moew', 'mèo', 'meooo', 'meoww'];
+            let result = '';
+            const length = Math.floor(Math.random() * 10) + 5;
+            
+            for (let i = 0; i < length; i++) {
+                const sound = meowSounds[Math.floor(Math.random() * meowSounds.length)];
+                result += sound + ' ';
+            }
+            return result.trim();
+        }
+
+        function addMessage(text, isUser) {
+            const chatContainer = document.getElementById('chatContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'cat-message'}`;
+            messageDiv.textContent = text;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, true);
+                setTimeout(() => {
+                    addMessage(generateMeow(), false);
+                }, 500);
+                input.value = '';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html> 
