@@ -116,19 +116,32 @@
     </div>
 
     <script>
+        function typeWriter(text, element, callback) {
+            let i = 0;
+            const speed = 50; // Thời gian giữa các ký tự (ms)
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            type();
+        }
+
         function generateMeow() {
-            // Kiểm tra tin nhắn cuối cùng của user
             const lastUserMessage = document.querySelector('.user-message:last-child');
             if (lastUserMessage && lastUserMessage.textContent.toLowerCase().includes('meow')) {
-                // Nếu có chữ 'meow', trả về ngẫu nhiên 'hehe' hoặc 'hihi'
                 return Math.random() < 0.5 ? 'hehe' : 'hihi';
             }
 
-            // Nếu không có chữ 'meow', giữ nguyên logic cũ
             const meowSounds = ['meow', 'meo', 'moew', 'mèo', 'meooo', 'meoww'];
             let result = '';
             const length = Math.floor(Math.random() * 10) + 5;
-            
+
             for (let i = 0; i < length; i++) {
                 const sound = meowSounds[Math.floor(Math.random() * meowSounds.length)];
                 result += sound + ' ';
@@ -140,20 +153,49 @@
             const chatContainer = document.getElementById('chatContainer');
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user-message' : 'cat-message'}`;
-            messageDiv.textContent = text;
             chatContainer.appendChild(messageDiv);
             chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            if (!isUser) {
+                // Hiển thị chữ dần dần cho tin nhắn của mèo
+                typeWriter(text, messageDiv);
+            } else {
+                messageDiv.textContent = text; // Hiển thị tin nhắn của người dùng ngay lập tức
+            }
+        }
+
+        function showLoadingIndicator() {
+            const chatContainer = document.getElementById('chatContainer');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message cat-message';
+            loadingDiv.textContent = 'Đang tải';
+            chatContainer.appendChild(loadingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            // Hiệu ứng ba dấu chấm
+            let dotCount = 0;
+            const loadingInterval = setInterval(() => {
+                dotCount = (dotCount + 1) % 4; // Tạo hiệu ứng nhảy nhảy
+                loadingDiv.textContent = 'Đang tải' + '.'.repeat(dotCount);
+            }, 500);
+
+            return { loadingDiv, loadingInterval };
         }
 
         function sendMessage() {
             const input = document.getElementById('userInput');
             const message = input.value.trim();
-            
+
             if (message) {
                 addMessage(message, true);
+                const { loadingDiv, loadingInterval } = showLoadingIndicator();
+
                 setTimeout(() => {
-                    addMessage(generateMeow(), false);
-                }, 500);
+                    clearInterval(loadingInterval); // Dừng hiệu ứng loading
+                    loadingDiv.remove(); // Xóa loading
+                    const response = generateMeow();
+                    addMessage(response, false);
+                }, 1500); // Thời gian chờ trước khi trả lời
                 input.value = '';
             }
         }
